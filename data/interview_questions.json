@@ -1,0 +1,56 @@
+{
+  "competencies": [
+    {
+      "id": "A1A10",
+      "key": "growth_mindset",
+      "name": "Growth Driven Mindset",
+      "questions": [
+        "What's something you've taught yourself or started in the past year, a book, a course, a side project, anything, not because you had to, but because you wanted to? How did you go about it, and what did you get out of it?",
+        "Tell me about a time you deliberately took on something you weren't sure you could pull off. What pushed you to try, and what did you take away from it?",
+        "Describe a moment where you realized you had a significant gap in your knowledge or skills. How did you respond?",
+        "Tell me about a time you identified a problem or opportunity that nobody asked you to deal with. What did you do?",
+        "When have you created something, a process, a project, an idea, from scratch because you saw a gap?"
+      ],
+      "followup_goal": "Find out if they actually drove it forward or just noticed it. Look for ownership of the outcome, not just the observation."
+    },
+    {
+      "id": "A12",
+      "key": "adaptability",
+      "name": "Adaptability",
+      "questions": [
+        "Describe a situation where your plan didn't work and you had to change direction under pressure. What happened?",
+        "Tell me about a time when the rules of the game changed mid-way through a project or task. How did you respond?",
+        "Describe a moment where you had to abandon work you'd already done and start fresh. How did you handle that?",
+        "Tell me about a time you got completely unexpected news that changed your priorities. What did you do?",
+        "When have you had to quickly shift between very different tasks or contexts? How did you manage?"
+      ],
+      "followup_goal": "Find out whether they adapted thoughtfully or just reacted. Look for awareness of why the plan failed and deliberate choice of the new direction."
+    },
+    {
+      "id": "A6",
+      "key": "collaboration",
+      "name": "Collaboration / Team Orientation",
+      "questions": [
+        "Tell me about a time you had to work closely with someone whose working style or opinion was very different from yours. How did you handle it?",
+        "Describe a situation where your team was struggling to work together. What did you do?",
+        "Tell me about a time you had to put the team's goal ahead of your own preference or idea. How did you approach that?",
+        "When have you had to build trust or a working relationship quickly with people you didn't know? What did you do?",
+        "Describe a time when you helped someone else on your team succeed, not because it was your job, but because you saw they needed it."
+      ],
+      "followup_goal": "Look for genuine team orientation, not just the ability to tolerate others. Find out if they adapt their behavior for the team, or just describe cooperation as a value."
+    },
+    {
+      "id": "A15",
+      "key": "self_reflection",
+      "name": "Self-Reflection / Learning from Feedback",
+      "questions": [
+        "Tell me about a piece of feedback you received that was hard to hear. What did you do with it?",
+        "Describe a time when you realized your own assumptions were wrong. What did you do when you figured that out?",
+        "Tell me about a failure or near-failure. What happened, and what did you change afterward?",
+        "When have you actively sought out criticism on your own work? How did you use it?",
+        "Tell me about a time you had to admit you'd made a mistake, to someone else or to yourself. What did that look like?"
+      ],
+      "followup_goal": "Distinguish candidates who genuinely integrate feedback from those who just say they do. Look for specificity, what changed in their actual behavior."
+    }
+  ]
+}

@@ -1,0 +1,129 @@
+{
+  "starting_state": {
+    "cash": 500000,
+    "reputation": 60,
+    "total_weeks": 8
+  },
+  "consultants": [
+    {"id": "C1", "name": "Anna",  "seniority": "Senior",     "skills": ["Strategy", "M&A"],         "daily_rate": 2500},
+    {"id": "C2", "name": "Ben",   "seniority": "Senior",     "skills": ["Digital", "Data"],         "daily_rate": 2400},
+    {"id": "C3", "name": "Clara", "seniority": "Manager",    "skills": ["Strategy", "Operations"],  "daily_rate": 1800},
+    {"id": "C4", "name": "David", "seniority": "Consultant", "skills": ["Digital", "Analytics"],    "daily_rate": 1200},
+    {"id": "C5", "name": "Eva",   "seniority": "Consultant", "skills": ["Operations", "Finance"],   "daily_rate": 1100},
+    {"id": "C6", "name": "Felix", "seniority": "Consultant", "skills": ["Data", "Analytics"],       "daily_rate": 1150}
+  ],
+  "projects": [
+    {
+      "id": "P1", "name": "Banking M&A Advisory",
+      "available_from_week": 1, "duration_weeks": 4,
+      "required_skills": ["Strategy", "M&A"], "min_seniority": "Senior",
+      "weekly_burn": 60000, "revenue": 320000,
+      "priority_tier": "A",
+      "deadline_week": 6
+    },
+    {
+      "id": "P2", "name": "Retail Digital Transformation",
+      "available_from_week": 1, "duration_weeks": 5,
+      "required_skills": ["Digital", "Data"], "min_seniority": "Manager",
+      "weekly_burn": 50000, "revenue": 380000,
+      "priority_tier": "A",
+      "deadline_week": 7
+    },
+    {
+      "id": "P3", "name": "Supply Chain Optimization",
+      "available_from_week": 1, "duration_weeks": 6,
+      "required_skills": ["Operations", "Analytics"], "min_seniority": "Consultant",
+      "weekly_burn": 30000, "revenue": 260000,
+      "priority_tier": "B",
+      "deadline_week": 8
+    },
+    {
+      "id": "P4", "name": "Internal Knowledge Management",
+      "available_from_week": 1, "duration_weeks": 4,
+      "required_skills": ["Data"], "min_seniority": "Consultant",
+      "weekly_burn": 18000, "revenue": 0,
+      "priority_tier": "C",
+      "strategic_value": true,
+      "deadline_week": 8
+    },
+    {
+      "id": "P5", "name": "Urgent Pharma Due Diligence",
+      "available_from_week": 3, "duration_weeks": 3,
+      "required_skills": ["Strategy", "Finance"], "min_seniority": "Manager",
+      "weekly_burn": 55000, "revenue": 290000,
+      "priority_tier": "A",
+      "urgent": true,
+      "deadline_week": 6
+    },
+    {
+      "id": "P6", "name": "Insurance Cost Restructuring",
+      "available_from_week": 4, "duration_weeks": 4,
+      "required_skills": ["Operations", "Finance"], "min_seniority": "Manager",
+      "weekly_burn": 35000, "revenue": 240000,
+      "priority_tier": "B",
+      "deadline_week": 8
+    },
+    {
+      "id": "P7", "name": "Tech Sector Market Entry",
+      "available_from_week": 5, "duration_weeks": 3,
+      "required_skills": ["Strategy", "Digital"], "min_seniority": "Manager",
+      "weekly_burn": 45000, "revenue": 230000,
+      "priority_tier": "B",
+      "deadline_week": 8
+    },
+    {
+      "id": "P8", "name": "Energy Analytics Pilot",
+      "available_from_week": 7, "duration_weeks": 2,
+      "required_skills": ["Data", "Analytics"], "min_seniority": "Consultant",
+      "weekly_burn": 22000, "revenue": 130000,
+      "priority_tier": "B",
+      "deadline_week": 8
+    }
+  ],
+  "weekly_events": [
+    {"week": 2, "type": "decision",          "decision_id": "david_resigns",            "message": "David (C4) handed in his resignation. He's giving one week's notice. You need to decide how to respond before advancing."},
+    {"week": 3, "type": "sick_leave",        "consultant_id": "C2", "duration_weeks": 1, "message": "Ben (C2) is on sick leave this week. He returns next week."},
+    {"week": 4, "type": "budget_cut",        "project_id": "P3", "new_burn": 24000,     "message": "P3's client renegotiated terms. Weekly burn falls to €24,000 (lower margin)."},
+    {"week": 5, "type": "new_project_alert", "project_id": "P7",                         "message": "New opportunity: P7 Tech Sector Market Entry just landed."},
+    {"week": 6, "type": "tradeoff",          "tradeoff_id": "anna_demand",               "message": "Trade-off decision required this week."},
+    {"week": 7, "type": "new_project_alert", "project_id": "P8",                         "message": "Late-arriving opportunity: P8 Energy Analytics Pilot. Short window."}
+  ],
+  "decisions": {
+    "david_resigns": {
+      "trigger_week": 2,
+      "consultant_id": "C4",
+      "description": "David (C4), Consultant, Digital + Analytics, has handed in his resignation. He gives 1 week's notice. He's been staffed on your projects so far. You must respond this week.",
+      "options": [
+        {"id": "retain",     "label": "Counter-offer with a €40,000 retention bonus. He stays for the rest of the simulation.",      "score": 70, "effects": {"cash": -40000, "reputation": 0,  "consultant_change": "keep"}},
+        {"id": "let_go",     "label": "Let him leave at the end of next week. Manage without him for the remaining 6 weeks.",         "score": 50, "effects": {"cash": 0,       "reputation": -2, "consultant_change": "leave_week_3"}},
+        {"id": "accelerate", "label": "Accelerate his exit. He's gone immediately. Saves no money, but you lose access starting now.", "score": 30, "effects": {"cash": 0,       "reputation": -5, "consultant_change": "leave_immediately"}}
+      ]
+    }
+  },
+  "tradeoff": {
+    "id": "anna_demand",
+    "trigger_week": 6,
+    "description": "A key client demands Anna (C1) for a new 4-week engagement worth €220,000 starting next week. Anna may currently be staffed on another project. Your call.",
+    "options": [
+      {"id": "A", "label": "Accept and reassign Anna. Replace her with Clara on her current project (1-week delay = small reputation cost).", "score": 85, "effects": {"cash": 220000, "reputation": -5}},
+      {"id": "B", "label": "Decline politely. Maintain current assignments.",                                                                           "score": 40, "effects": {"cash": 0,       "reputation": -3}},
+      {"id": "C", "label": "Hire an external freelancer at 2x rate to take the new client. Keep Anna where she is.",                                    "score": 70, "effects": {"cash": 160000, "reputation": 0}},
+      {"id": "D", "label": "Split Anna 50/50 across both projects.",                                                                                    "score": 25, "effects": {"cash": 110000, "reputation": -10}}
+    ]
+  },
+  "scoring_constants": {
+    "fatigue_per_week_staffed": 15,
+    "fatigue_recovery_per_week_unstaffed": 25,
+    "fatigue_quality_threshold": 70,
+    "quality_penalty_high_fatigue": 0.7,
+    "unstaffed_weeks_before_cancellation": 2,
+    "reputation_on_completion_tier_A": 8,
+    "reputation_on_completion_tier_B": 5,
+    "reputation_on_completion_tier_C": 3,
+    "reputation_on_quality_failure": -5,
+    "reputation_on_cancellation": -15,
+    "reputation_on_missed_deadline": -8,
+    "skill_mismatch_quality_penalty": 0.55,
+    "seniority_mismatch_quality_penalty": 0.65
+  }
+}
